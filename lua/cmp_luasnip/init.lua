@@ -85,8 +85,8 @@ function source:complete(params, callback)
 				for j, snip in pairs(tab) do
 					if not snip.hidden then
 						ft_items[#ft_items + 1] = {
-							word = snip.trigger,
-							label = snip.trigger,
+							word = snip.regTrig and snip.name or snip.trigger,
+							label = snip.regTrig and snip.name or snip.trigger,
 							kind = cmp.lsp.CompletionItemKind.Snippet,
 							data = {
 								priority = snip.effective_priority or 1000, -- Default priority is used for old luasnip versions
